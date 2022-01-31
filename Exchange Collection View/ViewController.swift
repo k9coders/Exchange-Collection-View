@@ -8,10 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var topBoxView: CustomCollectionViewCell?
+    var bottomBoxView: CustomCollectionViewCell?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        topBoxView.dataSource
+        
     }
 
 

@@ -13,6 +13,7 @@
 		36721FC127A3F493000843AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36721FBF27A3F493000843AE /* Main.storyboard */; };
 		36721FC327A3F494000843AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36721FC227A3F494000843AE /* Assets.xcassets */; };
 		36721FC627A3F494000843AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36721FC427A3F494000843AE /* LaunchScreen.storyboard */; };
+		36721FCE27A404B2000843AE /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36721FCD27A404B2000843AE /* CustomCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		36721FC227A3F494000843AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36721FC527A3F494000843AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36721FC727A3F494000843AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36721FCD27A404B2000843AE /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				36721FB927A3F493000843AE /* AppDelegate.swift */,
 				36721FBB27A3F493000843AE /* SceneDelegate.swift */,
 				36721FBD27A3F493000843AE /* ViewController.swift */,
+				36721FCD27A404B2000843AE /* CustomCollectionView.swift */,
 				36721FBF27A3F493000843AE /* Main.storyboard */,
 				36721FC227A3F494000843AE /* Assets.xcassets */,
 				36721FC427A3F494000843AE /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				36721FBE27A3F493000843AE /* ViewController.swift in Sources */,
 				36721FBA27A3F493000843AE /* AppDelegate.swift in Sources */,
 				36721FBC27A3F493000843AE /* SceneDelegate.swift in Sources */,
+				36721FCE27A404B2000843AE /* CustomCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
