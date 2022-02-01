@@ -38,7 +38,8 @@ class CustomCurrencyView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+//        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        backgroundColor = .red
         layer.cornerRadius = 15
         
         // currencyName setup
@@ -78,18 +79,19 @@ class CustomCurrencyView: UIView {
         addSubview(amountTextField)
         
         let constraints = [
-            currencyNameLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            currencyNameLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: 100),
-            currencyNameLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            currencyNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            currencyNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 110),
+            currencyNameLabel.topAnchor.constraint(equalTo: topAnchor),
             
-            currentBalanceLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            currentBalanceLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            currentBalanceLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            currentBalanceLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            currentBalanceLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            exchangeRateLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            exchangeRateLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            exchangeRateLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            exchangeRateLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            amountTextField.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            amountTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+            amountTextField.topAnchor.constraint(equalTo: topAnchor),
+            amountTextField.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
         

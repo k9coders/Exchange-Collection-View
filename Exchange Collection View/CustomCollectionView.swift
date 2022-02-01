@@ -13,17 +13,18 @@ class CustomCollectionView: UICollectionView {
 //    let eurBoxView = CustomCurrencyView(label: "EUR")
 //    let gbpBoxView = CustomCurrencyView(label: "GBP")
     
-    let cells = [CustomCurrencyView]()
+    var cells = [CustomCurrencyView]()
+    
     
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
         
-        backgroundColor = .green
+//        backgroundColor = .green
         delegate = self
         dataSource = self
-        register(  CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.reuseId)
+        register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.reuseId)
         isPagingEnabled = true
         layout.minimumLineSpacing = 20
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: 150)

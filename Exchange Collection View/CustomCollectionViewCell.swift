@@ -9,32 +9,81 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
-     static let reuseId = "CustomCollectionViewCell"
+    static let reuseId = "CustomCollectionViewCell"
     
-    let mainImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .red
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
-        return imageView
-    }()
+    var currencyNameLabel = UILabel()
+    var currentBalanceLabel = UILabel()
+    var exchangeRateLabel = UILabel()
+    var amountTextField = UITextField()
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(mainImageView)
+        addSubview(currencyNameLabel)
+        addSubview(currentBalanceLabel)
+        addSubview(exchangeRateLabel)
+        addSubview(amountTextField)
+        
+        setupView()
+        setConstraints()
+      
+    }
+    
+    func setupView() {
+        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        layer.cornerRadius = 15
+        
+        // currencyName setup
+        currencyNameLabel.text = "000"
+        currencyNameLabel.font = UIFont(name: "Futura-CondensedMedium", size: 80)
+        currencyNameLabel.textColor = .black
+        currencyNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        //currentBalance setup
+        currentBalanceLabel.text = "You have: 100$"
+        currentBalanceLabel.font = UIFont(name: "Futura-CondensedMedium", size: 20)
+        currentBalanceLabel.textColor = .black
+        currentBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        //excchangeRate setup
+        exchangeRateLabel.text = "$1 = $1"
+        exchangeRateLabel.font = UIFont(name: "Futura-CondensedMedium", size: 20)
+        exchangeRateLabel.textColor = .black
+        exchangeRateLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        //textFieldValue setup
+        amountTextField.placeholder = "0.00"
+        amountTextField.font = UIFont(name: "Futura-CondensedMedium", size: 80)
+        amountTextField.textColor = .black
+        amountTextField.translatesAutoresizingMaskIntoConstraints = false
+        amountTextField.textAlignment = .right
+        amountTextField.keyboardType = .numberPad
+    }
+    
+    func setConstraints() {
         
         let constraints = [
-        mainImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-        mainImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        mainImageView.topAnchor.constraint(equalTo: topAnchor),
-        mainImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            currencyNameLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            currencyNameLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: 110),
+            currencyNameLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            
+            currentBalanceLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            currentBalanceLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            currentBalanceLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            exchangeRateLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            exchangeRateLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            
+            amountTextField.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            amountTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

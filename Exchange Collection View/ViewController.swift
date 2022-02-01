@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    static let usdBoxView = CustomCurrencyView(label: "USD")
+    let eurBoxView = CustomCurrencyView(label: "EUR")
+    let gbpBoxView = CustomCurrencyView(label: "GBP")
+    
     var topBoxView = CustomCollectionView()
     var bottomBoxView = CustomCollectionView()
 
