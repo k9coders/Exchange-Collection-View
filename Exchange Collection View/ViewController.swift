@@ -9,14 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var topBoxView: CustomCollectionViewCell?
-    var bottomBoxView: CustomCollectionViewCell?
+    var topBoxView = CustomCollectionView()
+    var bottomBoxView = CustomCollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        topBoxView.dataSource
+        view.addSubview(topBoxView)
+        setupView() 
+    }
+    
+    func setupView() {
         
+        title = "Exchange"
+        view.backgroundColor = .white
+        let constraints = [
+            topBoxView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topBoxView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topBoxView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            topBoxView.heightAnchor.constraint(equalToConstant: 150)
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
 
 
