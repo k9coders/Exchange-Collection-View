@@ -26,6 +26,7 @@ class CustomCollectionView: UICollectionView {
         register(  CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.reuseId)
         isPagingEnabled = true
         layout.minimumLineSpacing = 20
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: 150)
         contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         translatesAutoresizingMaskIntoConstraints = false
     
@@ -47,7 +48,17 @@ extension CustomCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width - 20, height: 150)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        CGSize(width: UIScreen.main.bounds.width - 20, height: 150)
+//    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//            let totalCellWidth = UIScreen.main.bounds.width - 20 * 3
+//            let totalSpacingWidth = 20 * (3 - 1)
+//
+//            let leftInset = (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+//            let rightInset = leftInset
+//
+//            return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+//    }
 }
