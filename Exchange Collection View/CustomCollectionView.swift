@@ -9,11 +9,8 @@ import UIKit
 
 class CustomCollectionView: UICollectionView {
     
-//    let usdBoxView = CustomCurrencyView(label: "USD")
-//    let eurBoxView = CustomCurrencyView(label: "EUR")
-//    let gbpBoxView = CustomCurrencyView(label: "GBP")
+    var cells = [CurrencyViewModel]()
     
-    var cells = [CustomCurrencyView]()
     
     
     init() {
@@ -36,30 +33,24 @@ class CustomCollectionView: UICollectionView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setModel(cells: [CurrencyViewModel]) {
+        self.cells = cells
+    }
 }
 
-extension CustomCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+
+extension CustomCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return cells.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.reuseId, for: indexPath)
+        let cell = dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.reuseId, for: indexPath) as! CustomCollectionViewCell
+        cell.currencyNameLabel.text = cells[indexPath.row].currencyName
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        CGSize(width: UIScreen.main.bounds.width - 20, height: 150)
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//            let totalCellWidth = UIScreen.main.bounds.width - 20 * 3
-//            let totalSpacingWidth = 20 * (3 - 1)
-//
-//            let leftInset = (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-//            let rightInset = leftInset
-//
-//            return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-//    }
 }

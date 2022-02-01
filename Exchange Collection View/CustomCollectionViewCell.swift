@@ -32,7 +32,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     func setupView() {
-        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         layer.cornerRadius = 15
         
         // currencyName setup
@@ -71,7 +71,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
             currentBalanceLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             currentBalanceLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
-            currentBalanceLabel.heightAnchor.constraint(equalToConstant: 30),
             
             exchangeRateLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             exchangeRateLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),

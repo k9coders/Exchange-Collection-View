@@ -16,6 +16,7 @@
 		36721FCE27A404B2000843AE /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36721FCD27A404B2000843AE /* CustomCollectionView.swift */; };
 		369B566527A7D6FD009A2C30 /* CustomCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B566427A7D6FD009A2C30 /* CustomCurrencyView.swift */; };
 		369B566727A7D9A5009A2C30 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B566627A7D9A5009A2C30 /* CustomCollectionViewCell.swift */; };
+		369B566927A999D3009A2C30 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B566827A999D3009A2C30 /* CurrencyViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		36721FCD27A404B2000843AE /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		369B566427A7D6FD009A2C30 /* CustomCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurrencyView.swift; sourceTree = "<group>"; };
 		369B566627A7D9A5009A2C30 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		369B566827A999D3009A2C30 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				36721FBD27A3F493000843AE /* ViewController.swift */,
 				36721FCD27A404B2000843AE /* CustomCollectionView.swift */,
 				369B566627A7D9A5009A2C30 /* CustomCollectionViewCell.swift */,
+				369B566827A999D3009A2C30 /* CurrencyViewModel.swift */,
 				369B566427A7D6FD009A2C30 /* CustomCurrencyView.swift */,
 				36721FBF27A3F493000843AE /* Main.storyboard */,
 				36721FC227A3F494000843AE /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 				369B566527A7D6FD009A2C30 /* CustomCurrencyView.swift in Sources */,
 				369B566727A7D9A5009A2C30 /* CustomCollectionViewCell.swift in Sources */,
 				36721FBE27A3F493000843AE /* ViewController.swift in Sources */,
+				369B566927A999D3009A2C30 /* CurrencyViewModel.swift in Sources */,
 				36721FBA27A3F493000843AE /* AppDelegate.swift in Sources */,
 				36721FBC27A3F493000843AE /* SceneDelegate.swift in Sources */,
 				36721FCE27A404B2000843AE /* CustomCollectionView.swift in Sources */,

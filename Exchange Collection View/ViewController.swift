@@ -9,10 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    static let usdBoxView = CustomCurrencyView(label: "USD")
-    let eurBoxView = CustomCurrencyView(label: "EUR")
-    let gbpBoxView = CustomCurrencyView(label: "GBP")
-    
     var topBoxView = CustomCollectionView()
     var bottomBoxView = CustomCollectionView()
 
@@ -20,7 +16,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.addSubview(topBoxView)
-        setupView() 
+        view.addSubview(bottomBoxView)
+        setupView()
+        topBoxView.setModel(cells: CurrencyViewModel.fetchModel())
+        bottomBoxView.setModel(cells: CurrencyViewModel.fetchModel())
     }
     
     func setupView() {
@@ -31,7 +30,13 @@ class ViewController: UIViewController {
             topBoxView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBoxView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topBoxView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            topBoxView.heightAnchor.constraint(equalToConstant: 150)
+            topBoxView.heightAnchor.constraint(equalToConstant: 150),
+            
+            bottomBoxView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomBoxView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomBoxView.topAnchor.constraint(equalTo: view.topAnchor, constant: 350),
+            bottomBoxView.heightAnchor.constraint(equalToConstant: 150),
+            
         ]
         NSLayoutConstraint.activate(constraints)
     }
