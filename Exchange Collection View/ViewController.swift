@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     var bottomBoxView = CustomCollectionView()
     
     //    var structCurrency: Rates? //if we need use rates only
-    var dataSource: Data?
+    static var dataSource: Data?
         
     private let scrollViewHeight: CGFloat = 150
         
@@ -56,13 +56,20 @@ class ViewController: UIViewController {
         
         // (получить курсы валют при запуске приложения)
 //        getRateTimer()
+        
+        getExchangeRate(url: url)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        print("selected")
     }
     
     func setupView() {
         
         //set delegates for input recognize
-        topBoxView.delegate = self
-        bottomBoxView.delegate = self
+        //TODO: - в классе коллекции делегатов - достаточно? отсюда убрать?
+//        topBoxView.delegate = self
+//        bottomBoxView.delegate = self
         
         topBoxView.tag = 1
         bottomBoxView.tag = 2
@@ -135,74 +142,105 @@ extension ViewController: UIScrollViewDelegate, UICollectionViewDelegate {
     }
     //MARK: - Calculate currency rates
     //Change currency rates in title and label
-    func changeCurrencyRates() {
-        
-        var fromRate = 0.0 //rate валюты, которая находится на верхнем UIScrollView
-        var toRate = 0.0 //rate валюты, которая находится на нижнем UIScrollView
-        
-        var topSymbol = "" //символ валюты, которая находится на верхнем UIScrollView
-        var bottomSymbol = "" //символ валюты, которая находится на нижнем UIScrollView
+//    func changeCurrencyRates() {
+//        
+//        var fromRate = 0.0 //rate валюты, которая находится на верхнем UIScrollView
+//        var toRate = 0.0 //rate валюты, которая находится на нижнем UIScrollView
+//        
+//        var topSymbol = "" //символ валюты, которая находится на верхнем UIScrollView
+//        var bottomSymbol = "" //символ валюты, которая находится на нижнем UIScrollView
+//        
+//        //test
+//        var currentCell: UICollectionViewCell?
+//        
+//        
+//
+//        
+//        
+//        //TODO: - как обратиться к текущей видимой ячейке, чтобы поменять значения ее label-ов?
+//        
+//        // 2 switch-a, которые перебирают номер текущего отображаемого scrollView сверху и снизу
+//        switch topViewScrollNumber {
+//        case 1:
+//            //USD
+//            fromRate = self.dataSource?.rates.USD ?? 0 // достает из текущей версии Data рейт валюты
+//            self.topBoxView = self.topScrollView.usdBoxView // присваивает объект текущего view для того, чтобы присвоить его label-ам значения rate
+//            topSymbol = "$" // символ валюты, который будет использован для label в title и topBox и bottomBox
+//        case 2:
+//            //EUR
+//            fromRate = self.dataSource?.rates.EUR ?? 0
+//            self.topBoxView = self.topScrollView.eurBoxView
+//            topSymbol = "€"
+//
+//        case 3:
+////            let rate = topScrollView.gbpBoxView.exchangeRate.text
+//            fromRate = self.dataSource?.rates.GBP ?? 0
+//            self.topBoxView = self.topScrollView.gbpBoxView
+//            topSymbol = "£"
+//
+//        default:
+//            break
+//        }
+//        
+//        switch bottomViewScrollNumber {
+//        case 1:
+//            //USD
+//            toRate = self.dataSource?.rates.USD ?? 0
+//            self.bottomBoxView = self.bottomScrollView.usdBoxView
+//            bottomSymbol = "$"
+//        case 2:
+//            //EUR
+//            toRate = self.dataSource?.rates.EUR ?? 0
+//            self.bottomBoxView = self.bottomScrollView.eurBoxView
+//            bottomSymbol = "€"
+//
+//        case 3:
+////            let rate = topScrollView.gbpBoxView.exchangeRate.text
+//            toRate = self.dataSource?.rates.GBP ?? 0
+//            self.bottomBoxView = self.bottomScrollView.gbpBoxView
+//            bottomSymbol = "£"
+//
+//        default:
+//            break
+//            }
+//        //Calculate actual rate
+//
+//        let topViewCourse = String(format: "%.2f",toRate/fromRate) //rate для валюты, которая выбрана в верхнем scrollView, считается относительно выбранной валюты в нижем scrollView
+//        let bottomViewCourse = String(format: "%.2f",fromRate/toRate) //rate для валюты, которая выбрана в нижнем scrollView
+//        currentRate = toRate/fromRate
+//
+//        //Update UI
+//        DispatchQueue.main.async {
+//            //update rate to title and labels
+//            self.topBoxView?.exchangeRate.text = "1\(topSymbol) = \(bottomSymbol) \(topViewCourse)"
+//            self.bottomBoxView?.exchangeRate.text = "1\(bottomSymbol) = \(topSymbol) \(bottomViewCourse)"
+//            self.title = self.topBoxView?.exchangeRate.text
+//        }
+//    }
+    
 
-        
-        
-        //TODO: - как обратиться к текущей видимой ячейке, чтобы поменять значения ее label-ов?
-        
-        // 2 switch-a, которые перебирают номер текущего отображаемого scrollView сверху и снизу
-        switch topViewScrollNumber {
-        case 1:
-            //USD
-            fromRate = self.dataSource?.rates.USD ?? 0 // достает из текущей версии Data рейт валюты
-            self.topBoxView = self.topScrollView.usdBoxView // присваивает объект текущего view для того, чтобы присвоить его label-ам значения rate
-            topSymbol = "$" // символ валюты, который будет использован для label в title и topBox и bottomBox
-        case 2:
-            //EUR
-            fromRate = self.dataSource?.rates.EUR ?? 0
-            self.topBoxView = self.topScrollView.eurBoxView
-            topSymbol = "€"
 
-        case 3:
-//            let rate = topScrollView.gbpBoxView.exchangeRate.text
-            fromRate = self.dataSource?.rates.GBP ?? 0
-            self.topBoxView = self.topScrollView.gbpBoxView
-            topSymbol = "£"
-
-        default:
-            break
-        }
-        
-        switch bottomViewScrollNumber {
-        case 1:
-            //USD
-            toRate = self.dataSource?.rates.USD ?? 0
-            self.bottomBoxView = self.bottomScrollView.usdBoxView
-            bottomSymbol = "$"
-        case 2:
-            //EUR
-            toRate = self.dataSource?.rates.EUR ?? 0
-            self.bottomBoxView = self.bottomScrollView.eurBoxView
-            bottomSymbol = "€"
-
-        case 3:
-//            let rate = topScrollView.gbpBoxView.exchangeRate.text
-            toRate = self.dataSource?.rates.GBP ?? 0
-            self.bottomBoxView = self.bottomScrollView.gbpBoxView
-            bottomSymbol = "£"
-
-        default:
-            break
+//MARK: - Alamofire
+func getExchangeRate(url: String) {
+    
+    AF.request(url).responseDecodable(of: Data.self) { response in
+        switch response.result {
+        case .success(let value):
+            ViewController.dataSource = value
+            //self.structCurrency = value.rates // if we need use rates only
+            DispatchQueue.main.async {
+                if ViewController.dataSource != nil {
+//                        self.updateUI(dataSource: dataSource)
+                    self.topBoxView.reloadData()
+                    self.bottomBoxView.reloadData()
+                    print("network done")
+                }
             }
-        //Calculate actual rate
-
-        let topViewCourse = String(format: "%.2f",toRate/fromRate) //rate для валюты, которая выбрана в верхнем scrollView, считается относительно выбранной валюты в нижем scrollView
-        let bottomViewCourse = String(format: "%.2f",fromRate/toRate) //rate для валюты, которая выбрана в нижнем scrollView
-        currentRate = toRate/fromRate
-
-        //Update UI
-        DispatchQueue.main.async {
-            //update rate to title and labels
-            self.topBoxView?.exchangeRate.text = "1\(topSymbol) = \(bottomSymbol) \(topViewCourse)"
-            self.bottomBoxView?.exchangeRate.text = "1\(bottomSymbol) = \(topSymbol) \(bottomViewCourse)"
-            self.title = self.topBoxView?.exchangeRate.text
+        case .failure(let error):
+            print("ОШИБКА: \(error)")
         }
     }
+}
+
+
 }

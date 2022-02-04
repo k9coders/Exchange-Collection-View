@@ -50,7 +50,15 @@ extension CustomCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.reuseId, for: indexPath) as! CustomCollectionViewCell
         cell.currencyNameLabel.text = cells[indexPath.row].currencyName
+        
+        cell.exchangeRateLabel.text = String(cells[indexPath.row].rate)
+        print(String(cells[indexPath.row].rate))
+        
+
         return cell
+        
     }
+    
+
     
 }
